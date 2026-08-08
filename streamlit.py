@@ -4,6 +4,18 @@ import secrets
 import threading
 from pathlib import Path
 ASSETS_DIR = Path(__file__).parent / "assets"
+import re
+
+def clean_text(text: str) -> str:
+    # Remove <WebsiteContent_...> wrappers
+    return re.sub(r"<WebsiteContent_[^>]+>", "", text).replace("</WebsiteContent_wN6mq6q5su8EQb6sSego8>", "")
+
+# Example: print active vs background tabs
+for tab in edge_all_open_tabs:
+    title = clean_text(tab["pageTitle"])
+    url = clean_text(tab["pageUrl"])
+    status = "ACTIVE" if tab["isCurrent"] else "BACKGROUND"
+    print(f"[{status}] {title} → {url}")
 
 from datetime import datetime, date
 from typing import Dict, Any
