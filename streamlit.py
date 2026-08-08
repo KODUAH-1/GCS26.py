@@ -4,12 +4,6 @@ import secrets
 import threading
 from pathlib import Path
 ASSETS_DIR = Path(__file__).parent / "assets"
-import re
-
-def clean_text(text: str) -> str:
-    # Remove <WebsiteContent_...> wrappers
-    return re.sub(r"<WebsiteContent_[^>]+>", "", text).replace("</WebsiteContent_wN6mq6q5su8EQb6sSego8>", "")
-
 
 from datetime import datetime, date
 from typing import Dict, Any
@@ -17,6 +11,10 @@ import io
 import sqlite3
 import os
 from io import BytesIO
+import re
+
+def clean_text(text):
+    return re.sub(r"<WebsiteContent_[^>]+>", "", text).replace("</WebsiteContent_rMCm8Q9b5yifxiYC3D2f6>", "")
 
 DB_FILE = "school.db"
 
@@ -1199,4 +1197,5 @@ def reload_data():
     # Example: reload students and teachers from SQLite
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
+
 
