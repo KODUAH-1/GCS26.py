@@ -9,6 +9,10 @@ import re
 def clean_text(text: str) -> str:
     # Remove <WebsiteContent_...> wrappers
     return re.sub(r"<WebsiteContent_[^>]+>", "", text).replace("</WebsiteContent_wN6mq6q5su8EQb6sSego8>", "")
+import re
+
+def clean_text(text):
+    return re.sub(r"<WebsiteContent_[^>]+>", "", text).replace("</WebsiteContent_rMCm8Q9b5yifxiYC3D2f6>", "")
 
 # Example: print active vs background tabs
 for tab in edge_all_open_tabs:
