@@ -1,8 +1,6 @@
-streamlit==1.32.0
-pandas==2.2.2
-sqlalchemy==2.0.30
-bcrypt==4.1.2
-phonenumbers==8.13.40
-pillow==10.2.0
+ numpy==2.5.1
+pandas==3.0.5
+phonenumbers==9.0.36
+pillow==12.3.0
 
 
