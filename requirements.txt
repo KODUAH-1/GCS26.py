@@ -1,4 +1,5 @@
-# === Imports ===
-import re          # for cleaning up <WebsiteContent_...> wrappers
-import json        # if you want to save/load tab metadata as JSON
-import streamlit as st  # optional: for building a Streamlit dashboard
+streamlit
+pandas
+numpy
+phonenumbers
+
