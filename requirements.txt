@@ -1,6 +1,8 @@
- numpy==2.5.1
-pandas==3.0.5
-phonenumbers==9.0.36
-pillow==12.3.0
+import streamlit as st                                                 
+import pandas as pd                                                    
+import phonenumbers                                                    
+import bcrypt                                                          
+import streamlit as st                                                 
+import pandas as pd 
 
 
