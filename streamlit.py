@@ -1186,13 +1186,6 @@ elif menu == "Analytics":
 
 # Backup & Export
 elif menu == "Backup":
-    settings_page()   # runs the backup & restore UI
-def restore_db(uploaded_file):
-    with open(DB_FILE, "wb") as f:
-        f.write(uploaded_file.getbuffer())
-    # After writing, reload session_state from DB
-    reload_data()
-elif menu == "Backup":
     st.title("⚙️ Backup & Restore")
 
     # Backup section
