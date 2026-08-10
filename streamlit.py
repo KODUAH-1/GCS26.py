@@ -1192,6 +1192,28 @@ def restore_db(uploaded_file):
         f.write(uploaded_file.getbuffer())
     # After writing, reload session_state from DB
     reload_data()
+elif menu == "Backup":
+    st.title("⚙️ Backup & Restore")
+
+    # Backup section
+    st.subheader("📥 Download Backup")
+    if os.path.exists(DB_FILE):
+        db_bytes = backup_db()
+        st.download_button(
+            label="Download school.db",
+            data=db_bytes,
+            file_name="school_backup.db",
+            mime="application/octet-stream"
+        )
+    else:
+        st.warning("No database file found yet.")
+
+    # Restore section
+    st.subheader("📤 Restore Backup")
+    uploaded_file = st.file_uploader("Upload a backup (.db)", type=["db"])
+    if uploaded_file is not None:
+        restore_db(uploaded_file)
+        st.success("Database restored successfully! Restart the app to apply changes.")
 
 def reload_data():
     # Example: reload students and teachers from SQLite
